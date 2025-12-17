@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function Trace() {
+function TraceContent() {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const searchParams = useSearchParams();
 
@@ -35,5 +35,13 @@ export default function Trace() {
                 frameBorder="0"
             />
         </div>
+    );
+}
+
+export default function Trace() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <TraceContent />
+        </Suspense>
     );
 }
