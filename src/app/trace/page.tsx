@@ -18,7 +18,7 @@ function TraceContent() {
             iframeUrl = 'https://www.taas-stg.tralexho.com?org_id=' + encodeURIComponent(orgId)
                 + '&product_id=' + encodeURIComponent(productId);
         } else if (traceId) {
-            iframeUrl = 'https://taas-trace-dev.tralexho.com?trace_item_id=' + encodeURIComponent(traceId);
+            iframeUrl = 'https://www.taas-stg.tralexho.com?trace_item_id=' + encodeURIComponent(traceId);
         }
 
         if (iframeUrl && iframeRef.current) {
