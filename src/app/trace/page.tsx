@@ -15,10 +15,10 @@ function TraceContent() {
         let iframeUrl = '';
 
         if (productId && orgId) {
-            iframeUrl = 'https://taas-trace-dev.tralexho.com/trace?org_id=' + encodeURIComponent(orgId)
+            iframeUrl = 'https://taas-trace-dev.tralexho.com?org_id=' + encodeURIComponent(orgId)
                 + '&product_id=' + encodeURIComponent(productId);
         } else if (traceId) {
-            iframeUrl = 'https://taas-trace-dev.tralexho.com/trace?trace_item_id=' + encodeURIComponent(traceId);
+            iframeUrl = 'https://taas-trace-dev.tralexho.com?trace_item_id=' + encodeURIComponent(traceId);
         }
 
         if (iframeUrl && iframeRef.current) {
@@ -27,12 +27,12 @@ function TraceContent() {
     }, [searchParams]);
 
     return (
-        <div style={{ margin: 0, padding: 0, height: '100vh', overflow: 'hidden' }}>
+        <div style={{ margin: 0, padding: 0, height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <iframe
                 ref={iframeRef}
                 width="100%"
-                height="100%"
                 frameBorder="0"
+                style={{ flex: 1, border: 'none' }}
             />
         </div>
     );
